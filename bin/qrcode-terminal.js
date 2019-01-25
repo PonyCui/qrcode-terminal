@@ -36,7 +36,7 @@ if (process.stdin.isTTY) {
         terminal: false
     });
 
-    interface.on('line', function(line) {
+    interface.on('line', function (line) {
         handleInput(line);
     });
 }
@@ -69,7 +69,7 @@ function handleInput(input) {
      * Render the QR Code
      */
 
-    qrcode.generate(input);
+    qrcode.generate(input, { small: process.argv.indexOf("-s") >= 0 });
 }
 
 /*!
